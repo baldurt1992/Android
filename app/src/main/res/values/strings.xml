@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="sumar">Sumar</string>
+    <string name="restar">Restar</string>
+    <string name="multiplicar">Multiplicar</string>
+    <string name="dividir">Dividir</string>
+    <string name="valor1">Ingresa los valores</string>
+    <string name="title">Calculadora</string>
+    <string name="valores">Ingresa los valores separados por un espacio (solo dos valores para dividir):</string>
+    <string name="operacion">
+        Elige la operación que deseas realizar:
+    </string>
+</resources>
