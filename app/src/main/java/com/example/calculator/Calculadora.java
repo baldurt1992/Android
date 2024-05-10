@@ -39,4 +39,14 @@ public class Calculadora {
         return divTotal;
     }
 
+    public float porcentaje (float[] numeros) {
+        float porTotal;
+        if (numeros.length != 2) {
+            throw new ArithmeticException("Deben haber dos números exactos");
+        } else {
+           porTotal = (numeros[0] * numeros[1]) / 100;
+        }
+        return porTotal;
+    }
+
 }

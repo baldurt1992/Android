@@ -14,7 +14,7 @@ import java.text.NumberFormat;
 public class MainActivity extends AppCompatActivity {
     EditText value1, value2;
     TextView result;
-    Button sum, res, multi, div;
+    Button sum, res, multi, div, percent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         res = findViewById(R.id.res);
         multi = findViewById(R.id.multi);
         div = findViewById(R.id.div);
+        percent = findViewById(R.id.porcentaje);
         value1 = findViewById(R.id.valor1);
         result = findViewById(R.id.result);
 
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         multi.setOnClickListener(v -> operaciones("3"));
 
         div.setOnClickListener(v -> operaciones("4"));
+
+        percent.setOnClickListener(v -> operaciones("5"));
 
         }
     private void operaciones(String operador) {
@@ -62,12 +65,23 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case "4":
                 if (numeros.length > 1) {
-                    resultado = calculadora.dividir(numeros);
+                    if (numeros[1] != 0) {
+                        resultado = calculadora.dividir(numeros);
+                    } else {
+                        result.setText("Error: No se puede dividir por cero");
+                        return;
+                    }
                 } else {
                     result.setText("Error: Se requieren al menos dos números para la división");
                     return;
                 }
                 break;
+            case "5":
+                if (numeros.length != 2) {
+                    new ArithmeticException("Deben haber dos números exactos");
+                } else {
+                    resultado = calculadora.porcentaje(numeros);
+                }
         }
         NumberFormat resultadoExacto = NumberFormat.getInstance();
         String resultadoFormateado = resultadoExacto.format(resultado);
